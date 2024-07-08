@@ -12,8 +12,8 @@ Spinning: ✅ |
 
 
 Hour 2-
-Email box setup ✅ |<img width="1082" alt="Screenshot 2024-07-08 at 2 37 57 PM" src="https://github.com/lochlanmcelroy/website/assets/85311595/83be5de4-ee62-445b-9c1d-356c7ee651c4">
+Email box setup ✅ | 
 Encrypted & Anti-Spam ✅ |
-Catch-All Box ✅ | <img width="587" alt="Screenshot 2024-07-08 at 4 07 19 PM" src="https://github.com/lochlanmcelroy/website/assets/85311595/31be9c16-2703-4253-9fe0-2dc3718f1387">
-
-
+Catch-All Box ✅ | 
+<img width="587" alt="Screenshot 2024-07-08 at 4 07 19 PM" src="https://github.com/lochlanmcelroy/website/assets/85311595/31be9c16-2703-4253-9fe0-2dc3718f1387">
+<img width="745" alt="Screenshot 2024-07-08 at 4 08 00 PM" src="https://github.com/lochlanmcelroy/website/assets/85311595/3692b2bc-f3cb-4989-be87-cf4a79fa1632">
