@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Base styles for entire page */
-        /* Add padding to the bottom of the page */
         body, html {
             margin: 0;
             padding: 0;
@@ -25,7 +24,7 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px; /* Adds space between icons */
+            gap: 20px;
         }
 
 
@@ -40,7 +39,6 @@
             overflow: hidden;
         }
 
-        /* Spline Viewer for the interactive element */
         spline-viewer {
             display: block;
             width: 100vw;
@@ -65,8 +63,7 @@
             position: relative;
             animation: glitch 1s infinite;
         }
-
-        /* Duplicate layers to create glitch effect */
+        
         h2::before,
         h2::after {
             content: attr(data-text);
@@ -106,7 +103,7 @@
 
         .Marquee-content {
             display: inline-block;
-            padding-left: 0%; /* Ensure the second part starts out of view */
+            padding-left: 0%;
             animation: marquee 160s linear infinite;
         }
 
@@ -116,7 +113,6 @@
             color: #00ff00;
         }
 
-        /* Keyframes for smooth infinite scrolling */
         @keyframes marquee {
             0% {
                 transform: translateX(0);
@@ -129,7 +125,6 @@
             }
         }
 
-        /* Duplicate the content to create the infinite loop effect */
         .Marquee-content span {
             display: inline-block;
         }
@@ -185,8 +180,7 @@
             transform: scaleX(1);
             transform-origin: left;
         }
-
-        /* Terminal-style box for sections */
+        
         .terminal {
             background-color: #000000;
             padding: 20px;
@@ -196,7 +190,7 @@
             overflow: hidden;
         }
 
-        /* Watermark for copyright */
+        /* Watermark */
         .watermark {
             position: fixed;
             bottom: 10px;
@@ -227,8 +221,7 @@
             10% { clip: rect(70px, 9999px, 110px, 0); transform: skew(-0.5deg);}
             100% { clip: rect(12px, 9999px, 56px, 0); transform: skew(-0.5deg);}
         }
-
-        /* Animated rotating background for full screen section */
+        
         #full-screen::before {
             content: '';
             position: absolute;
@@ -314,7 +307,7 @@
         </div>
     </section>
 
-    <!-- Social Media Icons in Terminal-style box -->
+    <!-- Social Media -->
     <div class="content terminal" style="text-align: center; margin-top: 30px; max-width: 300px">
         <div class="social-icons">
             <a href="https://github.com/lochlanmcelroy" target="_blank">
