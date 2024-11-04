@@ -14,14 +14,11 @@
             margin: 0;
             background-color: #f0f0f0;
             color: #333;
-            overflow: hidden; /* Prevents scrollbars during animation */
-            position: relative;
         }
 
         .container {
             text-align: center;
             max-width: 600px;
-            z-index: 1; /* Keeps the text on top of the bouncer */
         }
 
         h1 {
@@ -43,18 +40,6 @@
         a:hover {
             text-decoration: underline;
         }
-
-        .bouncer {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background-image: url('https://kagi.com/proxy/magnifying-glass-clipart.png?c=T2uUpFAZeqtVuMTDKXpgrP-t8CMAC8lIPXgBjie9vA4AlSx-otiMJDSDU79qp9bjs4sKVb6D2H-QEkr0HOBj2qjx_jGBNbSWSdO_1dHe3t3ToBB44t7TtFgRvEfvY8cw');
-            background-size: contain;
-            background-repeat: no-repeat;
-            top: 0;
-            left: 0;
-            z-index: 0; /* Puts the bouncer behind the text */
-        }
     </style>
 </head>
 <body>
@@ -73,38 +58,5 @@
             <li>• Stare at this page and wonder where it all went wrong.</li>
         </ul>
     </div>
-
-    <div class="bouncer" id="bouncer"></div>
-
-    <script>
-        const bouncer = document.getElementById('bouncer');
-        let posX = 100;
-        let posY = 100;
-        let velocityX = 2;
-        let velocityY = 2;
-
-        function animateBounce() {
-            const windowWidth = window.innerWidth - bouncer.clientWidth;
-            const windowHeight = window.innerHeight - bouncer.clientHeight;
-
-            posX += velocityX;
-            posY += velocityY;
-
-            if (posX <= 0 || posX >= windowWidth) {
-                velocityX *= -1; // Reverse direction on X-axis
-            }
-
-            if (posY <= 0 || posY >= windowHeight) {
-                velocityY *= -1; // Reverse direction on Y-axis
-            }
-
-            bouncer.style.left = posX + 'px';
-            bouncer.style.top = posY + 'px';
-
-            requestAnimationFrame(animateBounce);
-        }
-
-        animateBounce();
-    </script>
 </body>
 </html>
