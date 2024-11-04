@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /security.txt
+Disallow: /pgp-key.txt
+Disallow: /private/
