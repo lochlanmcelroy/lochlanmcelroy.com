@@ -1,0 +1,8 @@
+Contact: mailto:cloudflare.0v9sy@passmail.net
+Expires: 2025-06-03T09:00:00Z
+Encryption: https://lochlanmcelroy.com/pgp-key.txt
+Acknowledgements: https://lochlanmcelroy.com/security-acknowledgements.html
+Policy: https://lochlanmcelroy.com/security-policy.html
+Preferred-Languages: en
+Canonical: https://lochlanmcelroy.com/security.txt
+Acknowledgement-Message: I appreciate your efforts in helping me secure my site :)
