@@ -1,0 +1,100 @@
+CTF Writeup: Covert Challenge - CSAW CTF
+
+Challenge Name: Covert
+Author: Lochlan McElroy (krackentosh)
+Category: Network Forensics / Cryptography
+Tools: Wireshark, TLS key log file, Scapy, Python, PCAP analysis
+
+Challenge Overview
+
+In the Covert challenge, we are provided with a PCAP file containing encrypted TLS traffic and a TLS key log file. Our objective is to decrypt the packets and reverse engineer a covert transmission method embedded within the network traffic. The ultimate goal is to retrieve the flag, which is hidden in packet IDs.
+
+Steps
+
+⸻
+
+Step 1: Analyze the PCAP File
+
+We begin by loading the PCAP file into Wireshark. Since the traffic is encrypted with TLS, we cannot immediately view the contents of the packets.
+
+Step 2: Attach TLS Key File
+
+To decrypt the traffic, I used the provided TLS key log file. In Wireshark, I went to Edit > Preferences > Protocols > TLS, then set the path to the key log file under the (Pre)-Master-Secret log filename. This allowed me to decrypt and inspect the TLS-encrypted traffic in cleartext.
+
+Once decrypted, I examined the traffic for notable domains or payloads.
+
+⸻
+
+Step 3: Identify the Target Domain
+
+Upon inspecting the decrypted traffic, I located a domain name: www.csawcovert.xyz. This domain is crucial because it points to where the covert data transmission might occur.
+
+I then examined the traffic related to this domain, which led to discovering packets that contained an unusual pattern in their IP identification fields.
+
+⸻
+
+Step 4: Reverse Engineer the Script
+
+Within the traffic, I found a Python script being transmitted, which provided clues to the covert data transfer mechanism. The script uses the Scapy library to send encoded messages by manipulating the IP identification field of packets. The script structure is as follows:
+
+# ez covert transfer...
+from scapy.all import IP, TCP, send
+
+key = ???
+dst_ip = "X.X.X.X"
+dst_port = ?????
+src_ip = "X.X.X.X"
+src_port = ?????
+
+def encode_message(message):
+    for letter in message:
+        ip = IP(dst=dst_ip, src=src_ip, id=ord(letter) * key)
+        tcp = TCP(sport=src_port, dport=dst_port)
+        send(ip/tcp)
+
+encode_message("????????????")
+
+Key Insights:
+	•	The script encodes a message by multiplying the ASCII value of each letter by a random key.
+	•	This encoded value is sent as the packet’s IP identification field.
+
+⸻
+
+Step 5: Extract IP IDs from PCAP
+
+By analyzing the PCAP, I extracted the IP identification fields of relevant packets:
+
+42972, 46167, 7665, 1724, 43941, 29587, 0, 42703, 0, 0, 0, 42708, 42710, 42717, 
+42718, 42720, 0, 44243, 5524, 27061, 42725, 0, 0, 0, 59563, 38555, 42731, 42733, 
+...
+47709, 47710, 0, 0, 47711, 47712, 47713, 0, 0, 47719, 0, 47745, 47746, 0
+
+Some of these values are much smaller, suggesting that they represent encoded characters, and the zero values are likely padding or non-relevant packets.
+
+⸻
+
+Step 6: Decode the Message
+
+Knowing that the flag format starts with C, I reverse-engineered the key by dividing the first small packet ID, 5445, by the ASCII value of C (99), which gave a key of 55.
+
+I then divided each of the small IP IDs by 55 to retrieve the corresponding ASCII values, which spell out the flag.
+
+⸻
+
+Step 7: Final Flag
+
+After performing the necessary calculations, I decoded the full flag:
+
+Flag: csawctf{licen$e_t0_tr@nsmit_c0vertTCP$$$}
+
+⸻
+
+Conclusion
+
+This challenge demonstrated the use of covert channels in network traffic by manipulating packet headers, a classic technique in network-based steganography. By leveraging tools like Wireshark for decryption and packet analysis, along with Python to reverse-engineer the obfuscated message, I was able to successfully decode the flag.
+
+This was a great exercise in both network forensics and understanding creative data encoding techniques!
+
+Writeup Author:
+Lochlan McElroy (krackentosh)
+Cybersecurity Student & Researcher, Western Michigan University
