@@ -246,7 +246,7 @@
             font-size: 0.9rem;
         }
         .terminal-output {
-            height: 615px;
+            height: 590px;
             overflow-y: auto;
             margin-bottom: 0.5rem;
             line-height: 1.4;
