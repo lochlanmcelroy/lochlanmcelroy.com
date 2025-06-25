@@ -1,3 +1,3 @@
 The Website
 
-HTML & Sheer willpower (stackoverflow, manuals, & chatgpt)
+HTML, CSS, Javascript & Sheer willpower (stackoverflow, manuals, & chatgpt)
