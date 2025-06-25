@@ -3,60 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404: Lost at Sea</title>
+    <title>404 - Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #0000AA; /* BSOD Blue */
+            color: #FFFFFF;
+            font-family: 'Fira Code', 'Consolas', monospace;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 80vh;
             margin: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            padding: 20px;
+            overflow: hidden;
+            text-align: left;
+            white-space: pre;
         }
-
         .container {
-            text-align: center;
-            max-width: 600px;
+            width: 90%;
+            max-width: 800px;
         }
-
         h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+            font-size: 2em;
+            color: #FFFF00; /* Yellow for error titles */
+            margin-bottom: 1em;
         }
-
         p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            font-size: 1em;
+            line-height: 1.4;
+            margin-bottom: 0.5em;
         }
-
+        .code {
+            color: #00FF00; /* Green for "technical" details */
+        }
+        .blink {
+            animation: blink-animation 1s steps(2, start) infinite;
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
         a {
-            color: #0073e6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
+            color: #FFFF00;
             text-decoration: underline;
+        }
+        a:hover {
+            color: #FFFFFF;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>404: No Page Here</h1>
-        <p>Oops! Looks like you’ve stumbled into the depths of my site without a map.</p>
-        <p>You could have:</p>
-        <ul style="text-align: left; list-style-type: none; padding: 0;">
-            <li>• Mistyped the URL (we all do it sometimes).</li>
-            <li>• Found a secret page that doesn’t exist (are you in the Matrix?).</li>
-        </ul>
-        <p>What can you do?</p>
-        <ul style="text-align: left; list-style-type: none; padding: 0;">
-            <li>• Go back to <a href="/">home base</a> and try again.</li>
-            <li>• Check out my <a href="https://github.com/lochlanmcelroy/writeup">latest writeup</a> – maybe that’s what you’re looking for?</li>
-            <li>• Stare at this page and wonder where it all went wrong.</li>
-        </ul>
+        <h1>:( KERNEL_PANIC - Resource Not Found</h1>
+
+        <p>A problem has been detected and your request could not be fulfilled.</p>
+        <p><span class="code">HTTP_ERROR_CODE: 404</span></p> <p>You can try going <a href="/">back to the main page</a>.</p>
+
+        <p>If this is the first time you've seen this stop error screen,
+        try navigating back or rechecking the URL. If this screen appears again,
+        follow these steps:</p>
+
+        <p>Check to make sure any new hardware or software is properly installed.</p>
+
+        <p>If problems continue, disable or remove any newly installed hopes and dreams.
+        Disable BIOS memory options such as caching or shadowing.</p>
+
+        <p>Technical information:</p>
+        <p><span class="code">*** STOP: 0x000000404 (0x00000001, 0xPATHNOTFOUND, 0xUSERERROR, 0x00000000)</span></p>
+        <p><span class="code">*** PAGE_FAULT_IN_NONPAGED_AREA</span></p>
+        <p><span class="code">*** Resource path: [whatever_you_typed_probably_doesnt_exist.html]</span></p>
+        
+        <p>Beginning dump of cyber-physical memory... <span class="blink">█</span></p>
     </div>
+    <script>
+        console.error("KERNEL_PANIC: User landed on a 404 page. Resource acquisition failure.");
+        console.warn("Attempting to restore user sanity by suggesting a return to safety.");
+        console.info("No actual kernels were harmed in the making of this page.");
+    </script>
 </body>
 </html>
