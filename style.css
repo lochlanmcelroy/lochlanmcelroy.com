@@ -480,6 +480,7 @@
             margin: 0;
             font-family: var(--font-mono);
             text-align: center;
+            text-wrap: balance;
         }
         
         /* Contact section inline style fix */
